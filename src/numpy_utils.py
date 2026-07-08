@@ -60,7 +60,12 @@ def describir_array(arr):
     """
     # TODO: imprime forma con arr.shape, tipo con arr.dtype,
     #       mínimo con arr.min() y máximo con arr.max()
-    pass
+    print(f"""
+    Forma  : {arr.shape}
+    Tipo   : {arr.dtype}
+    Mínimo : {arr.min()}
+    Máximo : {arr.max()}
+    """)
 
 
 def crear_array_declaraciones(valores_lista):

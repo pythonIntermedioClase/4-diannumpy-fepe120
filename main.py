@@ -50,11 +50,11 @@ def menu_arrays_y_tipos():
     """Sección 1: arrays y tipos de datos."""
     print("\n--- Arrays y tipos de datos ---")
 
-    # TODO: descomenta cuando hayas implementado describir_array
-    # print("\n  VALORES_DECLARADOS:")
-    # describir_array(VALORES_DECLARADOS)
-    # print("\n  DIAS_MORA:")
-    # describir_array(DIAS_MORA)
+
+    print("\n  VALORES_DECLARADOS:")
+    describir_array(VALORES_DECLARADOS)
+    print("\n  DIAS_MORA:")
+    describir_array(DIAS_MORA)
 
     # TODO: descomenta cuando hayas implementado crear_array_declaraciones
     # lista = [1_200_000, 750_000, 3_100_000]
