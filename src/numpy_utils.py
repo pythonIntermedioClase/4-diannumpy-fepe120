@@ -82,8 +82,8 @@ def crear_array_declaraciones(valores_lista):
         crear_array_declaraciones([1_000_000, 500_000, 2_000_000])
         -> array([1000000., 500000., 2000000.])
     """
-    # TODO: usa np.array con el parámetro dtype=np.float64
-    pass
+    return np.array(valores_lista, dtype = np.float64)
+    
 
 
 def comparar_lista_vs_array(valores_lista):
@@ -110,7 +110,13 @@ def comparar_lista_vs_array(valores_lista):
     # 2. Convierte valores_lista a array con np.array
     # 3. Calcula el IVA multiplicando el array por 0.19 y guarda en iva_array
     # 4. Imprime ambos resultados con etiquetas
-    pass
+    iva_lista = []
+    for valor in valores_lista :
+        iva = valor * 0.19
+        iva_lista.append(iva)
+    iva_array = np.array(valores_lista, dtype = np.float64) * 0.19
+
+    print(f"Lista iva: {iva_lista} \nArray iva: {iva_array}")
 
 
 def filtrar_valores_en_rango(valores_lista, minimo, maximo):
@@ -138,8 +144,11 @@ def filtrar_valores_en_rango(valores_lista, minimo, maximo):
     # 2. Recorre valores_lista con un ciclo for
     # 3. Si minimo <= valor <= maximo, agrégalo con .append()
     # 4. Retorna la lista acumulada
-    pass
-
+    lista = []
+    for valor in valores_lista:
+        if minimo <= valor <= maximo:
+            lista.append(valor)
+    return lista
 
 # ===========================================================================
 # SECCIÓN 2: INDEXACIÓN Y SLICING
@@ -162,7 +171,7 @@ def obtener_rango(arr, inicio, fin):
         -> array([      0., 2300000.,  950000.])
     """
     # TODO: usa slicing con arr[inicio:fin]
-    pass
+    return arr[inicio:fin]
 
 
 def obtener_ultimos(arr, n):
