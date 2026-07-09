@@ -56,90 +56,89 @@ def menu_arrays_y_tipos():
     print("\n  DIAS_MORA:")
     describir_array(DIAS_MORA)
 
-    # TODO: descomenta cuando hayas implementado crear_array_declaraciones
-    # lista = [1_200_000, 750_000, 3_100_000]
-    # arr = crear_array_declaraciones(lista)
-    # print(f"\n  Array creado desde lista: {arr}")
-    # print(f"  Tipo: {arr.dtype}")
 
-    # TODO: descomenta cuando hayas implementado comparar_lista_vs_array
-    # valores_lista = [1_500_000, 850_000, 2_300_000, 950_000]
-    # comparar_lista_vs_array(valores_lista)
+    lista = [1_200_000, 750_000, 3_100_000]
+    arr = crear_array_declaraciones(lista)
+    print(f"\n  Array creado desde lista: {arr}")
+    print(f"  Tipo: {arr.dtype}")
 
-    # TODO: descomenta cuando hayas implementado filtrar_valores_en_rango
-    # valores_lista = [1_500_000, 850_000, 2_300_000, 950_000, 0, 3_200_000]
-    # en_rango = filtrar_valores_en_rango(valores_lista, 500_000, 2_000_000)
-    # print(f"\n  Valores entre 500.000 y 2.000.000: {en_rango}")
+ 
+    valores_lista = [1_500_000, 850_000, 2_300_000, 950_000]
+    comparar_lista_vs_array(valores_lista)
 
-    print("\n  (función pendiente de implementar)")
+
+    valores_lista = [1_500_000, 850_000, 2_300_000, 950_000, 0, 3_200_000]
+    en_rango = filtrar_valores_en_rango(valores_lista, 500_000, 2_000_000)
+    print(f"\n  Valores entre 500.000 y 2.000.000: {en_rango}")
+
+
 
 
 def menu_indexacion_slicing():
     """Sección 2: indexación y slicing."""
     print("\n--- Indexación y slicing ---")
 
-    # TODO: descomenta cuando hayas implementado obtener_rango
-    # rango = obtener_rango(VALORES_DECLARADOS, 2, 5)
-    # print(f"\n  Posiciones 2 a 4: {rango}")
+ 
+    rango = obtener_rango(VALORES_DECLARADOS, 2, 5)
+    print(f"\n  Posiciones 2 a 4: {rango}")
 
-    # TODO: descomenta cuando hayas implementado obtener_ultimos
-    # ultimos = obtener_ultimos(VALORES_DECLARADOS, 3)
-    # print(f"\n  Últimos 3 valores: {ultimos}")
 
-    # TODO: descomenta cuando hayas implementado invertir_array
-    # invertido = invertir_array(VALORES_DECLARADOS)
-    # print(f"\n  Array invertido: {invertido}")
+    ultimos = obtener_ultimos(VALORES_DECLARADOS, 3)
+    print(f"\n  Últimos 3 valores: {ultimos}")
 
-    print("\n  (función pendiente de implementar)")
+
+    invertido = invertir_array(VALORES_DECLARADOS)
+    print(f"\n  Array invertido: {invertido}")
+
 
 
 def menu_vectorizacion():
     """Sección 3: vectorización."""
     print("\n--- Vectorización ---")
 
-    # TODO: descomenta cuando hayas implementado calcular_iva_todos
-    # iva = calcular_iva_todos(VALORES_DECLARADOS)
-    # print("\n  IVA por declaración:")
-    # for i, (nit, valor, monto_iva) in enumerate(
-    #         zip(NITS, VALORES_DECLARADOS, iva)):
-    #     print(f"  {nit} | ${valor:>12,.0f} | IVA: ${monto_iva:>10,.0f}")
 
-    # TODO: descomenta cuando hayas implementado calcular_valor_con_iva
-    # con_iva = calcular_valor_con_iva(VALORES_DECLARADOS)
-    # print(f"\n  Primeros 3 valores con IVA: {con_iva[:3]}")
+    iva = calcular_iva_todos(VALORES_DECLARADOS)
+    print("\n  IVA por declaración:")
+    for i, (nit, valor, monto_iva) in enumerate(
+            zip(NITS, VALORES_DECLARADOS, iva)):
+        print(f"  {nit} | ${valor:>12,.0f} | IVA: ${monto_iva:>10,.0f}")
 
-    # TODO: descomenta cuando hayas implementado redondear_a_miles
-    # redondeados = redondear_a_miles(VALORES_DECLARADOS * 1.19)
-    # print(f"\n  Valores con IVA redondeados a miles: {redondeados}")
 
-    print("\n  (función pendiente de implementar)")
+    con_iva = calcular_valor_con_iva(VALORES_DECLARADOS)
+    print(f"\n  Primeros 3 valores con IVA: {con_iva[:3]}")
+
+
+    redondeados = redondear_a_miles(VALORES_DECLARADOS * 1.19)
+    print(f"\n  Valores con IVA redondeados a miles: {redondeados}")
+
+
 
 
 def menu_ufuncs():
     """Sección 4: funciones universales."""
     print("\n--- Funciones universales ---")
 
-    # TODO: descomenta cuando hayas implementado calcular_variacion_absoluta
-    # valores_anterior = np.array([
-    #     1_200_000, 900_000, 0, 2_100_000,
-    #     800_000, 3_000_000, 500_000, 1_000_000,
-    # ], dtype=np.float64)
-    # variacion = calcular_variacion_absoluta(VALORES_DECLARADOS, valores_anterior)
-    # print("\n  Variación absoluta respecto al período anterior:")
-    # for nit, var in zip(NITS, variacion):
-    #     print(f"  {nit} | ${var:>10,.0f}")
 
-    # TODO: descomenta cuando hayas implementado normalizar_valores
-    # normalizados = normalizar_valores(VALORES_DECLARADOS)
-    # print("\n  Valores normalizados [0-1]:")
-    # for nit, norm in zip(NITS, normalizados):
-    #     print(f"  {nit} | {norm:.3f}")
+    valores_anterior = np.array([
+        1_200_000, 900_000, 0, 2_100_000,
+        800_000, 3_000_000, 500_000, 1_000_000,
+    ], dtype=np.float64)
+    variacion = calcular_variacion_absoluta(VALORES_DECLARADOS, valores_anterior)
+    print("\n  Variación absoluta respecto al período anterior:")
+    for nit, var in zip(NITS, variacion):
+        print(f"  {nit} | ${var:>10,.0f}")
 
-    # TODO: descomenta cuando hayas implementado aplicar_raiz_cuadrada
-    # raices = aplicar_raiz_cuadrada(VALORES_DECLARADOS)
-    # print(f"\n  Raíz cuadrada (primeros 3): {raices[:3]}")
 
-    print("\n  (función pendiente de implementar)")
+    normalizados = normalizar_valores(VALORES_DECLARADOS)
+    print("\n  Valores normalizados [0-1]:")
+    for nit, norm in zip(NITS, normalizados):
+        print(f"  {nit} | {norm:.3f}")
+
+
+    raices = aplicar_raiz_cuadrada(VALORES_DECLARADOS)
+    print(f"\n  Raíz cuadrada (primeros 3): {raices[:3]}")
+
+
 
 
 def menu_boolean_arrays():
