@@ -105,11 +105,7 @@ def comparar_lista_vs_array(valores_lista):
         Array (operación directa):
           [285000.   161500.   ...  209000.  ]
     """
-    # TODO:
-    # 1. Calcula el IVA con ciclo for sobre valores_lista y guarda en iva_lista
-    # 2. Convierte valores_lista a array con np.array
-    # 3. Calcula el IVA multiplicando el array por 0.19 y guarda en iva_array
-    # 4. Imprime ambos resultados con etiquetas
+
     iva_lista = []
     for valor in valores_lista :
         iva = valor * 0.19
@@ -139,11 +135,7 @@ def filtrar_valores_en_rango(valores_lista, minimo, maximo):
         filtrar_valores_en_rango([100, 500, 1200, 30], 100, 1000)
         -> [100, 500]
     """
-    # TODO:
-    # 1. Crea una lista vacía para acumular los valores filtrados
-    # 2. Recorre valores_lista con un ciclo for
-    # 3. Si minimo <= valor <= maximo, agrégalo con .append()
-    # 4. Retorna la lista acumulada
+
     lista = []
     for valor in valores_lista:
         if minimo <= valor <= maximo:
@@ -170,7 +162,7 @@ def obtener_rango(arr, inicio, fin):
         obtener_rango(VALORES_DECLARADOS, 2, 5)
         -> array([      0., 2300000.,  950000.])
     """
-    # TODO: usa slicing con arr[inicio:fin]
+
     return arr[inicio:fin]
 
 
@@ -189,8 +181,7 @@ def obtener_ultimos(arr, n):
         obtener_ultimos(VALORES_DECLARADOS, 3)
         -> array([ 450000., 1100000.])  (últimos 3 elementos)
     """
-    # TODO: usa indexación negativa arr[-n:]
-    pass
+    return arr[-n:]
 
 
 def invertir_array(arr):
@@ -208,7 +199,8 @@ def invertir_array(arr):
         -> array([4, 3, 2, 1])
     """
     # TODO: usa slicing con paso -1: arr[::-1]
-    pass
+    return arr[::-1].copy()
+
 
 
 # ===========================================================================
