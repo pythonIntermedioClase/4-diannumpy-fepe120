@@ -359,15 +359,11 @@ def contar_con_ciclo(lista, umbral):
         contar_con_ciclo([1_500_000, 850_000, 0, 2_300_000], 1_000_000)
         -> 2
     """
-    # TODO:
-    # 1. Crea contador = 0, antes del ciclo
-    # 2. Recorre lista con un ciclo for
-    # 3. Si valor > umbral, suma 1 a contador
-    # 4. Retorna contador
+
     contador = 0
     for valor in lista:
         if valor > umbral:
-            contar += 1
+            contador += 1
     return contador
 
 
@@ -388,11 +384,7 @@ def sumar_con_ciclo(lista):
         sumar_con_ciclo([1_500_000, 850_000, 2_300_000])
         -> 4650000
     """
-    # TODO:
-    # 1. Crea total = 0, antes del ciclo
-    # 2. Recorre lista con un ciclo for
-    # 3. Suma cada valor a total
-    # 4. Retorna total
+
     total = 0
     for valor in lista:
         total += valor
@@ -413,7 +405,8 @@ def obtener_mascara_mora(dias_mora):
         obtener_mascara_mora(np.array([0, 30, 0, 45]))
         -> array([False,  True, False,  True])
     """
-    # TODO: retorna dias_mora > 0
+    return dias_mora > 0
+    
     
 
 
@@ -438,10 +431,10 @@ def filtrar_valores_con_mora(valores, dias_mora):
         )
         -> array([ 850000., 2300000.])
     """
-    # TODO:
-    # 1. Crea la máscara: mascara = dias_mora > 0
-    # 2. Retorna valores[mascara]
-    pass
+
+    mascara = dias_mora>0
+    return valores[mascara]
+
 
 
 def contar_sobre_umbral(arr, umbral):
@@ -459,11 +452,10 @@ def contar_sobre_umbral(arr, umbral):
         contar_sobre_umbral(VALORES_DECLARADOS, 1_000_000)
         -> 4
     """
-    # TODO:
-    # 1. Crea la máscara: mascara = arr > umbral
-    # 2. Cuenta los True con cantidad = np.sum(mascara)
-    # 3. Retorna int(cantidad)
-    pass
+
+    mascara = arr > umbral
+    cantidad = np.sum(mascara)
+    return int(cantidad)
 
 
 # ===========================================================================
@@ -490,10 +482,11 @@ def clasificar_valores_vectorizado(valores, umbral=1_000_000):
         )
         -> array(['BAJO', 'ALTO', 'BAJO', 'ALTO'], dtype='<U4')
     """
-    # TODO:
-    # 1. Guarda "ALTO" en categoria_alta y "BAJO" en categoria_baja
-    # 2. Retorna np.where(valores > umbral, categoria_alta, categoria_baja)
-    pass
+
+    categoria_alta = "ALTO"
+    categoria_baja = "BAJO"
+    return np.where(valores > umbral, categoria_alta, categoria_baja)
+
 
 
 def aplicar_descuento_vectorizado(valores, pagos_voluntarios):
@@ -516,12 +509,10 @@ def aplicar_descuento_vectorizado(valores, pagos_voluntarios):
         )
         -> array([ 900000., 2000000., 1350000.])
     """
-    # TODO:
-    # 1. Guarda 0.90 en factor_descuento
-    # 2. Calcula valores_con_descuento = valores * factor_descuento
-    # 3. Retorna np.where(pagos_voluntarios, valores_con_descuento, valores)
-    pass
 
+    factor_descuento = 0.9
+    valores_con_descuento = valores * factor_descuento
+    return np.where(pagos_voluntarios,valores_con_descuento,valores)
 
 def calcular_sanciones_vectorizadas(valores, dias_mora):
     """
@@ -550,25 +541,23 @@ def calcular_sanciones_vectorizadas(valores, dias_mora):
         )
         -> array([     0.,  10000.,  50000., 100000.])
     """
-    # TODO:
-    # 1. Guarda cada tasa en una variable con nombre:
-    #    tasa_sin_mora = 0.00
-    #    tasa_mora_leve = 0.01
-    #    tasa_mora_moderada = 0.05
-    #    tasa_mora_grave = 0.10
-    # 2. Anida np.where para los cuatro tramos, uno por línea:
-    #    tasa = np.where(
-    #        dias_mora == 0,
-    #        tasa_sin_mora,
-    #        np.where(
-    #            dias_mora <= 30,
-    #            tasa_mora_leve,
-    #            np.where(
-    #                dias_mora <= 90,
-    #                tasa_mora_moderada,
-    #                tasa_mora_grave,
-    #            ),
-    #        ),
-    #    )
-    # 3. Retorna valores * tasa
-    pass
+
+    tasa_sin_mora = 0.00
+    tasa_mora_leve = 0.01
+    tasa_mora_moderada = 0.05
+    tasa_mora_grave = 0.10
+
+    tasa = np.where(
+        dias_mora == 0,
+        tasa_sin_mora,
+        np.where(
+            dias_mora<31,
+            tasa_mora_leve,
+            np.where(
+                dias_mora < 90,
+                tasa_mora_moderada,
+                tasa_mora_grave
+            )
+        )
+    )
+    return valores * tasa
